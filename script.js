@@ -51,12 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
     updateExpBar();
 });
 
-function playClickSound() {
-    const audio = new Audio('sons/click.mp3');
-    audio.volume = 0.3;
-    audio.play().catch(e => {});
-}
 
-document.querySelectorAll('.mc-button, .mc-button-sm').forEach(button => {
-    button.addEventListener('click', playClickSound);
-});
