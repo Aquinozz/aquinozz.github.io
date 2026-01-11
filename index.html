@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquinoz | Dev Craft</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <div id="ambient-particles"></div>
+
+    <div class="mc-world-container">
+        <nav class="mc-nav">
+            <div class="logo">AQUINOZ<span>.py</span></div>
+            <div class="nav-links">
+                <a href="#sobre" class="mc-button">SOBRE</a>
+                <a href="#inventario" class="mc-button">INVENTÁRIO</a>
+                <a href="#projetos" class="mc-button">PROJETOS</a>
+                <a href="#contato" class="mc-button">CONTATO</a>
+            </div>
+        </nav>
+
+        <header class="mc-header">
+            <div class="header-overlay"></div>
+            <div class="avatar-column">
+                <img src="imagens/aquinoz-avatar.png" alt="Aquinoz Avatar" class="mc-avatar glowing-item">
+                <div class="shadow-effect"></div>
+            </div>
+            <div class="header-content">
+                <h1 class="enchanted-text">AQUINOZ</h1>
+                <p class="subtitle pixel-font">Back-End Developer</p>
+                
+                <div class="ui-stats">
+
+                    <div class="ui-stats">
+    <div class="health-bar">
+        <img src="imagens/heart.png" class="heart-icon">
+       <img src="imagens/heart.png" class="heart-icon">
+       <img src="imagens/heart.png" class="heart-icon">
+       <img src="imagens/heart.png" class="heart-icon">
+       <img src="imagens/heart.png" class="heart-icon">
+       <img src="imagens/heart.png" class="heart-icon">
+       <img src="imagens/heart.png" class="heart-icon">
+        <img src="imagens/quebrado.png" class="heart-icon">
+        <img src="imagens/quebrado.png" class="heart-icon">
+    </div>
+    <div class="exp-bar-container">
+        <div class="exp-fill" style="width: 99%;"></div>
+        <span class="exp-level">99</span>
+    </div>
+
+    <a href="#sobre" class="mc-button explore-button">EXPLORAR MUNDO</a>
+</div>
+        </header>
+
+        <main class="mc-main-content">
+            <section id="sobre" class="mc-section dirt-block">
+                <div class="section-top-border"></div>
+                <h2 class="section-title">SOBRE O EXPLORADOR</h2>
+                <div class="intro-highlight">
+                    <p class="pixel-text">
+                        Olá! Eu sou <strong>Aquinoz</strong>, um <strong>Desenvolvedor Back-End</strong> especializado em construir a fundação sólida de qualquer mundo digital. Minha jornada no código me levou a minerar as melhores soluções com <strong>Python</strong> e <strong>SQL</strong>, e a construir estruturas complexas que rodam perfeitamente. Como um verdadeiro engenheiro de Redstone, conecto sistemas e faço a magia acontecer nos bastidores.
+                    </p>
+                </div>
+                <div class="section-bottom-border"></div>
+            </section>
+
+            <section id="inventario" class="mc-section crafting-table-block">
+                <div class="section-top-border"></div>
+                <h2 class="section-title">MEU INVENTÁRIO (SKILLS)</h2>
+                <div class="inventory-grid">
+                    <div class="slot clickable-slot" data-item="Python"><img src="imagens/icon-python.png" alt="Python"><span class="item-count glowing-text">64</span></div>
+                    <div class="slot clickable-slot" data-item="SQL"><img src="imagens/sql-icon.png" alt="SQL"><span class="item-count glowing-text">64</span></div>
+                    <div class="slot clickable-slot" data-item="JavaScript"><img src="imagens/icon-js.png" alt="JavaScript"><span class="item-count glowing-text">32</span></div>
+                    <div class="slot clickable-slot" data-item="HTML/CSS"><img src="imagens/html e css-icon.png" alt="HTML/CSS"><span class="item-count glowing-text">16</span></div>
+                    <div class="slot empty-slot"></div>
+                    <div class="slot empty-slot"></div>
+                    <div class="slot empty-slot"></div>
+                    <div class="slot empty-slot"></div>
+                </div>
+                <div class="section-bottom-border"></div>
+            </section>
+
+            <section id="projetos" class="mc-section stone-block">
+                <div class="section-top-border"></div>
+                <h2 class="section-title">MEUS MUNDOS (PROJETOS)</h2>
+                <div class="project-showcase">
+                    
+                    <a href="https://github.com/SEU-USUARIO/projeto-api" target="_blank" class="project-card-link">
+                        <div class="project-card clickable-card">
+                            <img src="imagens/icon-api.png" alt="API Icon" class="project-icon">
+                            <h3 class="project-name">API de Redstone</h3>
+                            <p class="project-desc pixel-font">Sistemas de automação e dados com Python & FastAPI.</p>
+                            <span class="mc-button-sm mc-button">VER MAIS</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/SEU-USUARIO/projeto-db" target="_blank" class="project-card-link">
+                        <div class="project-card clickable-card">
+                            <img src="imagens/icon-db.png" alt="Database Icon" class="project-icon">
+                            <h3 class="project-name">Base de Obsidiana</h3>
+                            <p class="project-desc pixel-font">Modelagem e otimização de DBs complexos em SQL.</p>
+                            <span class="mc-button-sm mc-button">VER MAIS</span>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="section-bottom-border"></div>
+            </section>
+
+            <section id="contato" class="mc-section wooden-plank-block">
+                <div class="section-top-border"></div>
+                <h2 class="section-title">TELEPORTE PARA CONTATO</h2>
+                <div class="intro-highlight center-box">
+                    <p class="pixel-text">
+                        Pronto para construir o próximo grande mundo? <br>
+                        Envie uma mensagem pelo meu <a href="mailto:muriloaquinotrab@gmail.com" class="enchanted-link">E-mail</a> 
+                        ou me encontre no <a href="https://www.linkedin.com/in/aquinoz/" target="_blank" class="enchanted-link">LinkedIn</a> 
+                        e <a href="https://github.com/Aquinozz" target="_blank" class="enchanted-link">GitHub</a>.
+                    </p>
+                </div>
+                <div class="section-bottom-border"></div>
+            </section>
+        </main>
+
+        <footer class="mc-footer">
+            <p class="pixel-font">&copy; 2026 Aquinoz - Crafted in the Digital Realm</p>
+            <div class="torch-left"></div>
+            <div class="torch-right"></div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
