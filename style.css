@@ -1,792 +1,720 @@
 :root {
-    /* Tons de Interface (GUI) */
-    --mc-bg-dark: #1e1e1e;
-    --mc-gray: #C6C6C6;           /* Cinza clássico dos menus */
-    --mc-dark-gray: #373737;      /* Cinza das bordas internas */
-    --mc-text-light: #FFFFFF;
-    --mc-text-dark: #3F3F3F;      /* Texto dentro de botões cinzas */
-    
-    /* Cores de Destaque (Minecraft Palette) */
-    --mc-highlight-green: #55FF55; /* Verde Neon (Grama/Creeper) */
-    --mc-highlight-blue: #55FFFF;  /* Azul Diamante */
-    --mc-highlight-purple: #FF55FF; /* Roxo Encantamento */
-    --mc-xp-green: #7CFC00;        /* Verde Limão da barra de XP */
-    
-    /* Bordas de Botão e GUI */
-    --mc-border-light: #FFFFFF;
-    --mc-border-dark: #555555;
-
-    /* Blocos (Ajuste de fidelidade) */
-    --mc-dirt-top: #a07a5f;
-    --mc-dirt-side: #866043;
-    --mc-stone-top: #bfbfbf;
-    --mc-stone-side: #7d7d7d;
-    --mc-plank-top: #d7b489;       /* Carvalho (Oak) mais claro */
-    --mc-plank-side: #a67d52;      /* Carvalho (Oak) lateral */
-    --mc-crafting-top: #b69c7f;
-    --mc-crafting-side: #8a6c4b;
+    --mc-bg-dark: #1e1e1e;
+    --mc-gray: #C6C6C6;
+    --mc-dark-gray: #373737;
+    --mc-text-light: #FFFFFF;
+    --mc-text-dark: #3F3F3F;
+    --mc-highlight-green: #55FF55;
+    --mc-highlight-blue: #55FFFF;
+    --mc-highlight-purple: #FF55FF;
+    --mc-xp-green: #7CFC00;
+    --mc-border-light: #FFFFFF;
+    --mc-border-dark: #555555;
+    --mc-dirt-top: #a07a5f;
+    --mc-dirt-side: #866043;
+    --mc-stone-top: #bfbfbf;
+    --mc-stone-side: #7d7d7d;
+    --mc-plank-top: #d7b489;
+    --mc-plank-side: #a67d52;
+    --mc-crafting-top: #b69c7f;
+    --mc-crafting-side: #8a6c4b;
 }
 
-/* Base Global */
 * {
-    box-sizing: border-box;
-    cursor: none !important;
-    image-rendering: pixelated; /* Garante que todas as imagens sejam pixeladas */
+    box-sizing: border-box;
+    cursor: none !important;
+    image-rendering: pixelated;
 }
 
 body {
-    background-color: var(--mc-bg-dark);
-    background-image: url('imagens/background-stone-texture.png'); /* Textura de fundo do mundo */
-    color: var(--mc-text-light);
-    font-family: 'Minecraft', sans-serif;
-    margin: 0;
-    padding: 0; /* Remove padding do body */
-    overflow-x: hidden; /* Evita scroll horizontal */
-    line-height: 1.5;
-    text-shadow: 2px 2px #000; /* Sombra para o texto principal */
+    background-color: var(--mc-bg-dark);
+    background-image: url('imagens/background-stone-texture.png');
+    color: var(--mc-text-light);
+    font-family: 'Minecraft', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.5;
+    text-shadow: 2px 2px #000;
 }
 
-/* Variante centralizada para o destaque */
 .intro-highlight.center {
-    text-align: center;
-    border-left: none; /* Remove a borda lateral */
-    border-bottom: 6px solid var(--mc-highlight-blue); /* Coloca a borda embaixo */
+    text-align: center;
+    border-left: none;
+    border-bottom: 6px solid var(--mc-highlight-blue);
 }
 
 .intro-highlight.center .pixel-text {
-    text-align: center;
-    max-width: 100%;
+    text-align: center;
+    max-width: 100%;
 }
 
 #custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 32px;
-    height: 32px;
-    background: url('imagens/pickaxe.png') no-repeat center;
-    background-size: contain;
-    z-index: 99999;
-    pointer-events: none;
-    image-rendering: pixelated;
-    /* Linha abaixo serve para centralizar a ponta da picareta no clique */
-    margin-left: -16px; 
-    margin-top: -16px;
-    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    background: url('imagens/pickaxe.png') no-repeat center;
+    background-size: contain;
+    z-index: 99999;
+    pointer-events: none;
+    image-rendering: pixelated;
+    margin-left: -16px; 
+    margin-top: -16px;
+    display: block;
 }
-/* Partículas de Ambiente (Ex: Poeira ou Brilho de Enderman) */
+
 #ambient-particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
 }
 
 .particle {
-    position: absolute;
-    background-color: var(--mc-highlight-purple);
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    opacity: 0;
-    animation: particle-fade-out 2s forwards;
+    position: absolute;
+    background-color: var(--mc-highlight-purple);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: particle-fade-out 2s forwards;
 }
 
 @keyframes particle-fade-out {
-    0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-    100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+    0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
 }
 
-
-/* Container Principal do Mundo */
 .mc-world-container {
-    max-width: 960px; /* Largura maior para mais detalhes */
-    margin: 20px auto;
-    border: 6px solid #000; /* Borda grossa para o mundo */
-    box-shadow: 0 0 20px rgba(0,0,0,0.8);
-    position: relative;
-    z-index: 20;
+    max-width: 960px;
+    margin: 20px auto;
+    border: 6px solid #000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 20;
 }
 
-/* Barra de Navegação */
 .mc-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0,0,0,0.6); /* Fundo semi-transparente */
-    padding: 10px 20px;
-    border-bottom: 4px solid #333;
-    position: sticky; /* Fica fixo ao rolar */
-    top: 0;
-    z-index: 100;
-    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+    padding: 10px 20px;
+    border-bottom: 4px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5));
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--mc-highlight-green);
-    text-shadow: 3px 3px #000;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--mc-highlight-green);
+    text-shadow: 3px 3px #000;
 }
 
 .logo span { color: var(--mc-highlight-blue); }
 
 .nav-links { display: flex; gap: 10px; }
 
-
-/* Botões UI (Interface do Usuário) */
-/* Botões UI - Corrigido para parecer com o menu do jogo */
 .mc-button {
-    background: var(--mc-gray);
-    border: 4px solid;
-    /* Efeito de borda 3D clássico do MC */
-    border-color: var(--mc-border-light) var(--mc-border-dark) var(--mc-border-dark) var(--mc-border-light);
-    color: var(--mc-text-dark);
-    padding: 8px 15px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 0.9rem;
-    /* Sombra do texto no botão é cinza escuro, não branca */
-    text-shadow: 2px 2px #d1d1d1; 
-    transition: all 0.05s linear;
-    position: relative;
-    font-weight: bold;
-    text-align: center;
+    background: var(--mc-gray);
+    border: 4px solid;
+    border-color: var(--mc-border-light) var(--mc-border-dark) var(--mc-border-dark) var(--mc-border-light);
+    color: var(--mc-text-dark);
+    padding: 8px 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+    text-shadow: 2px 2px #d1d1d1; 
+    transition: all 0.05s linear;
+    position: relative;
+    font-weight: bold;
+    text-align: center;
 }
 
 .mc-button:hover {
-    background: #7ba4ff; /* Azul de seleção do Minecraft */
-    color: #ffffff;
-    text-shadow: 2px 2px #000;
-    border-color: #fff #0000aa #0000aa #fff;
+    background: #7ba4ff;
+    color: #ffffff;
+    text-shadow: 2px 2px #000;
+    border-color: #fff #0000aa #0000aa #fff;
 }
 
-/* Slot de Inventário - Cores de profundidade corrigidas */
 .slot {
-    width: 70px;
-    height: 70px;
-    background: #8b8b8b; 
-    border: 4px solid;
-    /* Borda invertida para dar efeito de "buraco" no inventário */
-    border-color: #373737 #fff #fff #373737; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    width: 70px;
+    height: 70px;
+    background: #8b8b8b; 
+    border: 4px solid;
+    border-color: #373737 #fff #fff #373737; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-/* Destaque do Texto de Apresentação */
 .intro-highlight {
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo tipo chat do MC */
-    border-left: 5px solid var(--mc-highlight-blue); /* Detalhe lateral diamante */
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 85%;
-    border-radius: 2px;
-    position: relative;
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-left: 5px solid var(--mc-highlight-blue);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 85%;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 .intro-highlight p {
-    font-size: 1.2rem;
-    color: #e0e0e0;
-    line-height: 1.6;
-    text-align: left;
-    margin: 0;
-    text-shadow: 2px 2px #000;
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+    text-shadow: 2px 2px #000;
 }
 
-/* Efeito de brilho sutil no texto importante */
 .intro-highlight strong {
-    color: var(--mc-highlight-green);
-    font-weight: normal;
+    color: var(--mc-highlight-green);
+    font-weight: normal;
 }
 
-/* Ajuste na barra de XP para legibilidade */
 .exp-bar-container {
-    width: 250px;
-    height: 15px;
-    background: #000;
-    border: 2px solid #555; /* Borda cinza escuro típica */
-    position: relative;
-    box-shadow: 0 0 0 2px #000; /* Outline extra preta */
+    width: 250px;
+    height: 15px;
+    background: #000;
+    border: 2px solid #555;
+    position: relative;
+    box-shadow: 0 0 0 2px #000;
 }
 
 .exp-level {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2rem;
-    color: var(--mc-xp-green); /* Nível de XP é verde */
-    text-shadow: 2px 2px #000;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: var(--mc-xp-green);
+    text-shadow: 2px 2px #000;
 }
 
-
 .mc-button:active {
-    border-color: var(--mc-border-dark) var(--mc-border-light) var(--mc-border-light) var(--mc-border-dark);
-    transform: translateY(0);
-    box-shadow: none;
+    border-color: var(--mc-border-dark) var(--mc-border-light) var(--mc-border-light) var(--mc-border-dark);
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .mc-button.explore-button {
-    background-color: var(--mc-highlight-green);
-    color: #000;
-    font-size: 1.1rem;
-    padding: 12px 25px;
-    margin-top: 20px;
-    filter: drop-shadow(0 0 10px var(--mc-highlight-green));
+    background-color: var(--mc-highlight-green);
+    color: #000;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    margin-top: 20px;
+    filter: drop-shadow(0 0 10px var(--mc-highlight-green));
 }
+
 .mc-button.explore-button:hover {
-    filter: drop-shadow(0 0 20px var(--mc-highlight-green)) brightness(1.2);
+    filter: drop-shadow(0 0 20px var(--mc-highlight-green)) brightness(1.2);
 }
 
 .mc-button-sm {
-    font-size: 0.8rem;
-    padding: 6px 10px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
 }
 
-/* Header Principal (Área de Boas-Vindas) */
 .mc-header {
-    background-image: url('imagens/header-bg-forest.png'); /* Fundo de floresta ou paisagem pixelada */
-    background-size: cover;
-    background-position: center;
-    padding: 60px 20px 40px;
-    text-align: center;
-    position: relative;
-    display: flex; /* Para layout flexível do header */
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    overflow: hidden; /* Para conter os elementos flutuantes */
+    background-image: url('imagens/header-bg-forest.png');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px 40px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    overflow: hidden;
 }
 
 .header-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.3); /* Escurece um pouco o fundo */
-    z-index: 1;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 1;
 }
 
 .avatar-column {
-    position: relative;
-    z-index: 2;
-    padding: 10px; /* Para dar espaço ao redor do avatar */
+    position: relative;
+    z-index: 2;
+    padding: 10px;
 }
 
 .mc-avatar {
-    width: 180px; /* Avatar maior */
-    border: 6px solid #000;
-    box-shadow: 10px 10px 0 rgba(0,0,0,0.5);
-    animation: avatar-float 4s infinite ease-in-out;
-    filter: drop-shadow(0 0 15px rgba(0,0,0,0.7)); /* Sombra mais suave */
+    width: 180px;
+    border: 6px solid #000;
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.5);
+    animation: avatar-float 4s infinite ease-in-out;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.7));
 }
 
 .shadow-effect {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleY(0.5);
-    width: 80%;
-    height: 20px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 50%;
-    filter: blur(5px);
-    z-index: -1;
-    animation: shadow-pulse 4s infinite ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0.5);
+    width: 80%;
+    height: 20px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: -1;
+    animation: shadow-pulse 4s infinite ease-in-out;
 }
 
 @keyframes avatar-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
+
 @keyframes shadow-pulse {
-    0%, 100% { transform: translateX(-50%) scale(0.8, 0.5); }
-    50% { transform: translateX(-50%) scale(1, 0.6); }
+    0%, 100% { transform: translateX(-50%) scale(0.8, 0.5); }
+    50% { transform: translateX(-50%) scale(1, 0.6); }
 }
 
 .header-content {
-    text-align: center;
-    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
 }
 
 .enchanted-text {
-    font-size: 4.5rem; /* Título maior */
-    color: var(--mc-highlight-purple);
-    text-shadow: 6px 6px #000;
-    margin-bottom: 10px;
-    animation: enchanted-glow 2s infinite ease-in-out alternate;
-    line-height: 1;
+    font-size: 4.5rem;
+    color: var(--mc-highlight-purple);
+    text-shadow: 6px 6px #000;
+    margin-bottom: 10px;
+    animation: enchanted-glow 2s infinite ease-in-out alternate;
+    line-height: 1;
 }
 
 @keyframes enchanted-glow {
-    0% { filter: drop-shadow(0 0 8px var(--mc-highlight-purple)) brightness(1); }
-    100% { filter: drop-shadow(0 0 25px var(--mc-highlight-purple)) brightness(1.5); }
+    0% { filter: drop-shadow(0 0 8px var(--mc-highlight-purple)) brightness(1); }
+    100% { filter: drop-shadow(0 0 25px var(--mc-highlight-purple)) brightness(1.5); }
 }
 
 .subtitle {
-    font-size: 1.8rem;
-    color: var(--mc-text-light);
-    text-shadow: 3px 3px #000;
-    margin-top: 0;
-    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: var(--mc-text-light);
+    text-shadow: 3px 3px #000;
+    margin-top: 0;
+    margin-bottom: 25px;
 }
 
-/* Centraliza todo o conteúdo de texto e botões do topo */
-.header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: 2;
-}
-
-/* Reset total para esta seção */
 .ui-stats-new {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    margin: 20px 0 !important;
-    gap: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 20px 0 !important;
+    gap: 15px !important;
 }
 
 .health-row {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    flex-wrap: nowrap !important; /* Proíbe quebrar linha */
-    gap: 2px !important;
-    width: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 2px !important;
+    width: auto !important;
 }
 
 .heart-pixel {
-    width: 24px !important;
-    height: 24px !important;
-    image-rendering: pixelated !important;
-    display: block !important;
+    width: 24px !important;
+    height: 24px !important;
+    image-rendering: pixelated !important;
+    display: block !important;
 }
 
 .xp-bar-outer {
-    width: 250px !important;
-    height: 14px !important;
-    background: #000 !important;
-    border: 2px solid #fff !important;
-    position: relative !important;
+    width: 250px !important;
+    height: 14px !important;
+    background: #000 !important;
+    border: 2px solid #fff !important;
+    position: relative !important;
 }
 
 .xp-bar-inner {
-    height: 100% !important;
-    background: #7CFC00 !important; /* Verde XP */
+    height: 100% !important;
+    background: #7CFC00 !important;
 }
 
 .xp-num {
-    position: absolute !important;
-    top: -20px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    color: #7CFC00 !important;
-    text-shadow: 2px 2px #000 !important;
+    position: absolute !important;
+    top: -20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    color: #7CFC00 !important;
+    text-shadow: 2px 2px #000 !important;
 }
 
 .health-bar {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    gap: 4px !important;
-    width: 100% !important;
-    min-height: 24px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    min-height: 24px !important;
 }
 
 .heart-icon {
-    width: 24px !important;
-    height: 24px !important;
-    flex-shrink: 0 !important; /* Impede que o CSS esmague a imagem */
-    image-rendering: pixelated !important;
-    display: block !important;
+    width: 24px !important;
+    height: 24px !important;
+    flex-shrink: 0 !important;
+    image-rendering: pixelated !important;
+    display: block !important;
 }
 
 .ui-stats {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 12px !important;
-    width: 100% !important;
-}
-
-/* Barra de XP: Ajuste de proporção */
-.exp-bar-container {
-    width: 240px;
-    height: 12px;
-    background: #000;
-    border: 2px solid #fff;
-    position: relative;
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
-}
-
-/* Garante que o botão não seja empurrado para o lado */
-.explore-button {
-    display: block !important;
-    width: fit-content !important;
-    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
 }
 
 .exp-bar-container {
-    width: 250px;
-    height: 15px;
-    background: #000;
-    border: 2px solid #fff;
-    position: relative;
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+    width: 250px;
+    height: 15px;
+    background: #000;
+    border: 2px solid #fff;
+    position: relative;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
 }
 
 .exp-fill {
-    width: 0%; /* Controlado por JS */
-    height: 100%;
-    background: var(--mc-xp-green);
-    transition: width 0.5s ease-out;
+    width: 0%;
+    height: 100%;
+    background: var(--mc-xp-green);
+    transition: width 0.5s ease-out;
 }
 
 .exp-level {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1rem;
-    color: #fff;
-    text-shadow: 1px 1px #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px #000;
 }
 
-
-/* Seções Principais (Blocos 3D) */
 .mc-main-content { padding: 0 20px; }
 
 .mc-section {
-    position: relative;
-    margin-bottom: 40px;
-    padding: 40px;
-    border: 6px solid #000; /* Borda externa do bloco */
-    box-shadow: 12px 12px 0 rgba(0,0,0,0.6); /* Sombra projetada */
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+    position: relative;
+    margin-bottom: 40px;
+    padding: 40px;
+    border: 6px solid #000;
+    box-shadow: 12px 12px 0 rgba(0,0,0,0.6);
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
 }
 
-/* Efeito de bordas superiores e inferiores dos blocos */
 .section-top-border, .section-bottom-border {
-    position: absolute;
-    left: -6px;
-    right: -6px;
-    height: 6px; /* Altura da borda */
-    z-index: 5;
-    background-color: rgba(255,255,255,0.1); /* Um leve brilho */
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    height: 6px;
+    z-index: 5;
+    background-color: rgba(255,255,255,0.1);
 }
+
 .section-top-border { top: -6px; border-top: 6px solid rgba(255,255,255,0.2); }
 .section-bottom-border { bottom: -6px; border-bottom: 6px solid rgba(0,0,0,0.3); }
 
-
-/* Tipos de Blocos */
 .dirt-block {
-    background-image: url('imagens/dirt-texture.png'); /* Textura de terra */
-    background-size: 32px 32px; /* Tamanho do tile */
-    border-color: var(--mc-dirt-top) var(--mc-dirt-side) var(--mc-dirt-side) var(--mc-dirt-top);
+    background-image: url('imagens/dirt-texture.png');
+    background-size: 32px 32px;
+    border-color: var(--mc-dirt-top) var(--mc-dirt-side) var(--mc-dirt-side) var(--mc-dirt-top);
 }
 
 .stone-block {
-    background-image: url('imagens/stone-texture.png'); /* Textura de pedra */
-    background-size: 32px 32px;
-    border-color: var(--mc-stone-top) var(--mc-stone-side) var(--mc-stone-side) var(--mc-stone-top);
+    background-image: url('imagens/stone-texture.png');
+    background-size: 32px 32px;
+    border-color: var(--mc-stone-top) var(--mc-stone-side) var(--mc-stone-side) var(--mc-stone-top);
 }
 
 .crafting-table-block {
-    background-image: url('imagens/crafting-table-top.png'); /* Textura da bancada */
-    background-size: cover;
-    background-position: center;
-    border-color: var(--mc-crafting-top) var(--mc-crafting-side) var(--mc-crafting-side) var(--mc-crafting-top);
+    background-image: url('imagens/crafting-table-top.png');
+    background-size: cover;
+    background-position: center;
+    border-color: var(--mc-crafting-top) var(--mc-crafting-side) var(--mc-crafting-side) var(--mc-crafting-top);
 }
 
 .wooden-plank-block {
-    background-image: url('imagens/wooden-plank-texture.png'); /* Textura de madeira */
-    background-size: 32px 32px;
-    border-color: var(--mc-plank-top) var(--mc-plank-side) var(--mc-plank-side) var(--mc-plank-top);
+    background-image: url('imagens/wooden-plank-texture.png');
+    background-size: 32px 32px;
+    border-color: var(--mc-plank-top) var(--mc-plank-side) var(--mc-plank-side) var(--mc-plank-top);
 }
-
 
 .section-title {
-    font-size: 2.8rem;
-    color: var(--mc-highlight-green);
-    text-shadow: 5px 5px #000;
-    margin-bottom: 25px;
-    text-align: center;
-    position: relative;
-    padding-bottom: 15px;
+    font-size: 2.8rem;
+    color: var(--mc-highlight-green);
+    text-shadow: 5px 5px #000;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
 }
+
 .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--mc-highlight-blue);
-    box-shadow: 0 0 10px var(--mc-highlight-blue);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--mc-highlight-blue);
+    box-shadow: 0 0 10px var(--mc-highlight-blue);
 }
 
 .pixel-text {
-    font-size: 1.1rem;
-    text-align: center;
-    max-width: 80%;
-    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto 30px;
 }
 
-.pixel-font { font-family: 'Minecraft', sans-serif; } /* Usado para textos adicionais */
+.pixel-font { font-family: 'Minecraft', sans-serif; }
 
-
-/* Inventário */
 .inventory-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 slots por linha */
-    gap: 8px;
-    background-color: rgba(0,0,0,0.4);
-    border: 4px solid #333;
-    padding: 10px;
-    width: fit-content;
-    margin: 20px auto;
-    box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    background-color: rgba(0,0,0,0.4);
+    border: 4px solid #333;
+    padding: 10px;
+    width: fit-content;
+    margin: 20px auto;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
 }
 
 .slot {
-    width: 70px;
-    height: 70px;
-    background: #8b8b8b; /* Fundo do slot */
-    border: 4px solid;
-    border-color: #373737 #fff #fff #373737; /* Borda 3D */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.1s linear;
+    width: 70px;
+    height: 70px;
+    background: #8b8b8b;
+    border: 4px solid;
+    border-color: #373737 #fff #fff #373737;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.1s linear;
 }
 
 .slot:hover {
-    background: #aaa;
-    transform: scale(1.05);
-    filter: brightness(1.2);
+    background: #aaa;
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
 .slot img {
-    width: 48px;
-    height: 48px;
-    filter: drop-shadow(2px 2px #000);
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(2px 2px #000);
 }
 
 .item-count {
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    font-size: 0.8rem;
-    color: #fff;
-    text-shadow: 1px 1px #000;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 0.8rem;
+    color: #fff;
+    text-shadow: 1px 1px #000;
 }
 
 .glowing-text { animation: text-glow 1.5s infinite alternate; }
 @keyframes text-glow {
-    0% { filter: brightness(1); }
-    100% { filter: brightness(1.5) drop-shadow(0 0 5px #fff); }
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.5) drop-shadow(0 0 5px #fff); }
 }
 
 .empty-slot { background: rgba(0,0,0,0.3); border: 2px dashed #666; }
 
-.health-bar {
-    display: flex !important;
-    min-width: 150px; /* Garante que o contêiner tenha largura */
-    min-height: 30px;
-    gap: 4px;
-}
-
-/* Remove o estilo padrão de link do botão de explorar */
-.explore-button, 
-.explore-button:visited, 
+.explore-button, 
+.explore-button:visited, 
 .explore-button:active {
-    text-decoration: none; /* Remove o sublinhado */
-    color: #FFFFFF;        /* Cor do texto (ajuste para #000 se preferir) */
-    outline: none;         /* Remove a borda azul de seleção ao clicar */
+    text-decoration: none;
+    color: #FFFFFF;
+    outline: none;
 }
 
-/* Garante que o estado 'hover' (passar o mouse) mantenha o estilo */
 .explore-button:hover {
-    color: #FFFF55; /* Cor amarela clássica de seleção do Minecraft */
-    text-decoration: none;
+    color: #FFFF55;
+    text-decoration: none;
 }
 
-
-/* Reseta estilos de link globais */
 a {
-    text-decoration: none;
-    color: inherit;
-    cursor: none; /* Mantém o cursor customizado da picareta */
+    text-decoration: none;
+    color: inherit;
+    cursor: none;
 }
 
-/* Remove o azul do botão explorar */
 .explore-button {
-    display: inline-block;
-    color: white !important;
-    text-align: center;
+    display: inline-block;
+    color: white !important;
+    text-align: center;
 }
 
-/* Centralização do Contato */
 .intro-highlight.center-box {
-    text-align: center;
-    margin: 20px auto;
-    border-left: none;
-    border-top: 4px solid var(--mc-highlight-blue);
-    border-bottom: 4px solid var(--mc-highlight-blue);
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    margin: 20px auto;
+    border-left: none;
+    border-top: 4px solid var(--mc-highlight-blue);
+    border-bottom: 4px solid var(--mc-highlight-blue);
+    display: flex;
+    justify-content: center;
 }
 
-/* Estilo dos cards de projeto como links */
 .project-card-link {
-    display: block;
-    color: inherit;
-    transition: transform 0.2s ease;
+    display: block;
+    color: inherit;
+    transition: transform 0.2s ease;
 }
 
 .project-card-link:hover {
-    transform: scale(1.02); /* Leve aumento ao selecionar */
+    transform: scale(1.02);
 }
 
 .heart-icon {
-    width: 24px !important;
-    height: 24px !important;
-    display: inline-block !important;
-    visibility: visible !important;
-    image-rendering: pixelated;
+    width: 24px !important;
+    height: 24px !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    image-rendering: pixelated;
 }
-/* Projetos */
+
 .project-showcase {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .project-card {
-    background-color: rgba(0,0,0,0.4);
-    border: 5px solid #000;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 8px 8px 0 rgba(0,0,0,0.4);
-    transition: all 0.2s ease-in-out;
+    background-color: rgba(0,0,0,0.4);
+    border: 5px solid #000;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.4);
+    transition: all 0.2s ease-in-out;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 12px 12px 0 rgba(0,0,0,0.6);
-    border-color: var(--mc-highlight-green);
-    filter: brightness(1.1);
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 0 rgba(0,0,0,0.6);
+    border-color: var(--mc-highlight-green);
+    filter: brightness(1.1);
 }
 
 .project-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 15px;
-    filter: drop-shadow(3px 3px #000);
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    filter: drop-shadow(3px 3px #000);
 }
 
 .project-name {
-    font-size: 1.5rem;
-    color: var(--mc-highlight-blue);
-    text-shadow: 3px 3px #000;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: var(--mc-highlight-blue);
+    text-shadow: 3px 3px #000;
+    margin-bottom: 10px;
 }
 
 .project-desc {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #ccc;
 }
 
-
-/* Links Encantados */
 .enchanted-link {
-    color: var(--mc-highlight-purple);
-    text-decoration: none;
-    text-shadow: 1px 1px #000;
-    font-weight: bold;
-    animation: text-enchant 1.5s infinite alternate;
+    color: var(--mc-highlight-purple);
+    text-decoration: none;
+    text-shadow: 1px 1px #000;
+    font-weight: bold;
+    animation: text-enchant 1.5s infinite alternate;
 }
 
 @keyframes text-enchant {
-    0% { filter: brightness(1); }
-    100% { filter: brightness(1.3) drop-shadow(0 0 5px var(--mc-highlight-purple)); }
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.3) drop-shadow(0 0 5px var(--mc-highlight-purple)); }
 }
 
-/* Footer */
 .mc-footer {
-    background-image: url('imagens/dark-stone-texture.png');
-    background-size: 32px 32px;
-    padding: 30px 20px;
-    text-align: center;
-    border-top: 6px solid #000;
-    box-shadow: inset 0 10px 15px rgba(0,0,0,0.7);
-    position: relative;
-    overflow: hidden;
+    background-image: url('imagens/dark-stone-texture.png');
+    background-size: 32px 32px;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 6px solid #000;
+    box-shadow: inset 0 10px 15px rgba(0,0,0,0.7);
+    position: relative;
+    overflow: hidden;
 }
 
 .mc-footer p {
-    font-size: 0.9rem;
-    color: #aaa;
-    text-shadow: 1px 1px #000;
-    z-index: 5;
-    position: relative;
+    font-size: 0.9rem;
+    color: #aaa;
+    text-shadow: 1px 1px #000;
+    z-index: 5;
+    position: relative;
 }
 
 .torch-left, .torch-right {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    background: url('imagens/torch-icon.png') no-repeat center center; /* Ícone de tocha */
-    background-size: contain;
-    filter: drop-shadow(0 0 10px orange);
-    animation: torch-flicker 1.5s infinite alternate;
-    z-index: 2;
-    bottom: 10px;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background: url('imagens/torch-icon.png') no-repeat center center;
+    background-size: contain;
+    filter: drop-shadow(0 0 10px orange);
+    animation: torch-flicker 1.5s infinite alternate;
+    z-index: 2;
+    bottom: 10px;
 }
+
 .torch-left { left: 20px; }
 .torch-right { right: 20px; }
 
 @keyframes torch-flicker {
-    0% { opacity: 0.8; filter: drop-shadow(0 0 8px orange); }
-    50% { opacity: 1; filter: drop-shadow(0 0 15px orange) brightness(1.2); }
-    100% { opacity: 0.8; filter: drop-shadow(0 0 8px orange); }
+    0% { opacity: 0.8; filter: drop-shadow(0 0 8px orange); }
+    50% { opacity: 1; filter: drop-shadow(0 0 15px orange) brightness(1.2); }
+    100% { opacity: 0.8; filter: drop-shadow(0 0 8px orange); }
 }
 
-
-/* Media Queries para Responsividade */
 @media (max-width: 768px) {
-    .mc-header { flex-direction: column; gap: 20px; padding-top: 40px; }
-    .header-content { text-align: center; }
-    .avatar-column { margin-bottom: 20px; }
-    .enchanted-text { font-size: 3.5rem; }
-    .subtitle { font-size: 1.4rem; }
-    .ui-stats { flex-direction: column; }
-    .mc-nav { flex-direction: column; gap: 10px; }
-    .nav-links { flex-wrap: wrap; justify-content: center; }
-    .section-title { font-size: 2.2rem; }
-    .project-showcase { grid-template-columns: 1fr; }
-    .inventory-grid { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); }
+    .mc-header { flex-direction: column; gap: 20px; padding-top: 40px; }
+    .header-content { text-align: center; }
+    .avatar-column { margin-bottom: 20px; }
+    .enchanted-text { font-size: 3.5rem; }
+    .subtitle { font-size: 1.4rem; }
+    .ui-stats { flex-direction: column; }
+    .mc-nav { flex-direction: column; gap: 10px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+    .section-title { font-size: 2.2rem; }
+    .project-showcase { grid-template-columns: 1fr; }
+    .inventory-grid { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); }
 }
 
 @media (max-width: 480px) {
-    .enchanted-text { font-size: 2.8rem; }
-    .subtitle { font-size: 1.2rem; }
-    .mc-avatar { width: 120px; }
-    .mc-button { padding: 6px 10px; font-size: 0.8rem; }
-    .section-title { font-size: 1.8rem; }
-
+    .enchanted-text { font-size: 2.8rem; }
+    .subtitle { font-size: 1.2rem; }
+    .mc-avatar { width: 120px; }
+    .mc-button { padding: 6px 10px; font-size: 0.8rem; }
+    .section-title { font-size: 1.8rem; }
 }
