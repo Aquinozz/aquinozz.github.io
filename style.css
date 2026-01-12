@@ -135,13 +135,23 @@ body {
     color: var(--mc-text-dark);
     padding: 8px 15px;
     text-decoration: none;
-    display: inline-block;
+    
+    
+    display: inline-flex;    
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    
     font-size: 0.9rem;
     text-shadow: 2px 2px #d1d1d1; 
     transition: all 0.05s linear;
     position: relative;
     font-weight: bold;
     text-align: center;
+    
+   
+    word-wrap: break-word;   
+    white-space: normal;     
 }
 
 .mc-button:hover {
@@ -745,21 +755,21 @@ a {
         padding: 15px 10px;
     }
 
-    .nav-links {
-        width: 100%;
+ .nav-links {
         display: grid; 
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
-        padding: 5px;
+        gap: 8px;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box; 
     }
 
     .mc-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 14px 5px; 
-        font-size: 0.85rem;
-        width: 100%; 
+        display: flex; 
+        width: 100%;  
         box-sizing: border-box; 
+        font-size: 0.8rem;
+        padding: 12px 5px;
+        min-height: 44px;
     }
 } 
