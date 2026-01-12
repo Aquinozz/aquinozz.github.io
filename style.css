@@ -182,8 +182,12 @@ body {
     border-radius: 2px;
     position: relative;
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+    
+    
+    box-sizing: border-box; 
+    overflow-wrap: break-word; 
+    word-wrap: break-word;
 }
-
 .intro-highlight p {
     font-size: 1.2rem;
     color: #e0e0e0;
@@ -669,6 +673,12 @@ a {
     text-shadow: 1px 1px #000;
     font-weight: bold;
     animation: text-enchant 1.5s infinite alternate;
+
+    display: inline-block;     
+    max-width: 100%;           
+    word-wrap: break-word;     
+    word-break: break-all;    
+    overflow-wrap: break-word; 
 }
 
 @keyframes text-enchant {
@@ -773,3 +783,16 @@ a {
         min-height: 44px;
     }
 } 
+
+@media (max-width: 768px) {
+    .intro-highlight {
+        max-width: 95%; 
+        padding: 15px;  
+    }
+
+    
+    .enchanted-link {
+        word-break: break-all; 
+        font-size: 0.9rem; 
+    }
+}
