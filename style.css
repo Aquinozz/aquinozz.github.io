@@ -1,3 +1,4 @@
+
 :root {
     --mc-bg-dark: #1e1e1e;
     --mc-gray: #C6C6C6;
@@ -794,5 +795,46 @@ a {
     .enchanted-link {
         word-break: break-all; 
         font-size: 0.9rem; 
+    }
+}
+
+@media (max-width: 340px) {
+    
+    .enchanted-text { 
+        font-size: 2.2rem; 
+    }
+    
+    .section-title { 
+        font-size: 1.5rem; 
+    }
+
+    .subtitle { 
+        font-size: 1rem; 
+    }
+
+    
+    .mc-avatar { 
+        width: 100px; 
+    }
+
+    
+    .nav-links {
+        grid-template-columns: 1fr; 
+        gap: 5px;
+    }
+
+    .mc-button {
+        font-size: 0.75rem;
+        padding: 10px 5px;
+    }
+
+    .mc-header, .intro-highlight {
+        padding-left: 10px;
+        padding-right: 10px;
+    }   
+    
+    .inventory-grid {
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 5px;
     }
 }
