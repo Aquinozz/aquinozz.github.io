@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquinozz | /etc/network/interfaces</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="terminal-loader contact-loader" id="loader"></div>
+    <div class="scanlines"></div>
+
+    <div class="terminal-container">
+        <nav class="terminal-nav">
+            <a href="index.html">[ H O M E ]</a>
+            <a href="projects.html">[ P R O J E C T S ]</a>
+            <a href="contact.html" class="active">[ C O N T A C T ]</a>
+        </nav>
+
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('pt')">PT_BR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN_US</button>
+        </div>
+
+        <header>
+            <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~</span>$ <span class="command">finger aquinozz</span></p>
+        </header>
+
+        <main>
+            <section class="terminal-section">
+                <div class="output">
+                    <p>Login: aquinozz            Name: Aquinozz</p>
+                    <p>Directory: /home/aquinozz  Shell: /usr/bin/python3</p>
+                    <p>On since Sun Feb 22 14:00 (BRT) on tty1</p>
+                </div>
+            </section>
+
+            <section class="terminal-section">
+                <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~</span>$ <span class="command">cat /etc/communication/methods</span></p>
+                <div class="output contact-list">
+                    <div class="contact-item">
+                        <span class="label" data-pt="EMAIL:" data-en="EMAIL:">EMAIL:</span> 
+                        <a href="mailto:muriloaquinotrab@gmail.com">muriloaquinotrab@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label" data-pt="LINKEDIN:" data-en="LINKEDIN:">LINKEDIN:</span> 
+                        <a href="https://linkedin.com/in/aquinozz" target="_blank">linkedin.com/in/aquinozz</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label" data-pt="GITHUB:" data-en="GITHUB:">GITHUB:</span> 
+                        <a href="https://github.com/aquinozz" target="_blank">github.com/aquinozz</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label" data-pt="INSTAGRAM:" data-en="INSTAGRAM:">INSTAGRAM:</span> 
+                        <a href="https://instagram.com/aquinoz.m" target="_blank">@aquinoz.m</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="terminal-section">
+                <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~</span>$ <span class="command">sudo service status --all</span></p>
+                <div class="output">
+                    <p data-pt="[ UP ] Disponível para Freelance Remoto" data-en="[ UP ] Remote Freelance Availability">[ <span class="text-white">UP</span> ] Remote Freelance Availability</p>
+                    <p data-pt="[ UP ] Aberto para Colaborações" data-en="[ UP ] Open for Collaborations">[ <span class="text-white">UP</span> ] Open for Collaborations</p>
+                    <p data-pt="[ UP ] Mensagens Diretas" data-en="[ UP ] Direct Messages">[ <span class="text-white">UP</span> ] Direct Messages</p>
+                </div>
+            </section>
+        </main>
+
+        <footer style="margin-top: 50px;">
+            <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~</span>$ <span class="cursor"></span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquinozz | /home/projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="terminal-loader project-loader" id="loader"></div>
+    <div class="scanlines"></div>
+
+    <div class="terminal-container">
+        <nav class="terminal-nav">
+            <a href="index.html">[ H O M E ]</a>
+            <a href="projects.html" class="active">[ P R O J E C T S ]</a>
+            <a href="contact.html">[ C O N T A C T ]</a>
+        </nav>
+
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('pt')">PT_BR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN_US</button>
+        </div>
+
+        <header>
+            <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~/projects</span>$ <span class="command">tree --level 1 ./portfolio</span></p>
+        </header>
+
+        <main>
+            <section class="project-item">
+                <div class="project-header">
+                    <span class="tree-symbol">├──</span> 
+                    <span class="project-name">Counter Strike 2 Matches Tracker</span> 
+                    <span class="project-tag">[Stable]</span>
+                </div>
+                <div class="project-content">
+                    <p class="description" data-pt="Aplicação para monitoramento de partidas competitivas de CS2 em tempo real." data-en="Real-time competitive CS2 match monitoring application.">Aplicação para monitoramento de partidas competitivas de CS2 em tempo real.</p>
+                    <p class="tech-used" data-pt="Stack: Python, Flask, RestApi" data-en="Stack: Python, Flask, RestApi">Stack: Python, Flask, RestApi</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Aquinozz/Csgo-Matches-Tracker" target="_blank">> Git_Clone</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-item">
+                <div class="project-header">
+                    <span class="tree-symbol">└──</span> 
+                    <span class="project-name">Site para analise e avaliação de curriculo com Ia</span> 
+                    <span class="project-tag">[Running]</span>
+                </div>
+                <div class="project-content">
+                    <p class="description" data-pt="Site que avalia e gera curriculos de forma automatica usando Ia." data-en="Site that automatically evaluates resumes using AI.">Site que avalia curriculos de forma automatica usando Ia.</p>
+                    <p class="tech-used" data-pt="Stack: Python, JavaScript, FastAPI, PyPDF, AI" data-en="Stack: Python, JavaScript, PyPDF, AI">Stack: Python, JavaScript, FastAPI, PyPDF, AI</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">> View_Code</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-item">
+                <div class="project-header">
+                    <span class="tree-symbol">└──</span> 
+                    <span class="project-name">Gerenciamento de estoque</span> 
+                    <span class="project-tag">[Stable]</span>
+                </div>
+                <div class="project-content">
+                    <p class="description" data-pt="Sistemas de automação e dados com Python & SQL, focado em lojas pequenas que precisam de suporte em suas vendas" data-en="Automation and data systems with Python & SQL, focused on small stores that need support in their sales.">Sistemas de automação e dados com Python & SQL, focado em lojas pequenas que precisam de suporte em suas vendas.</p>
+                    <p class="tech-used" data-pt="Stack: Python, SQL" data-en="Stack: Python, SQL">Stack: Python, SQL</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Aquinozz/Gerenciamento-de-estoque" target="_blank">> View_Code</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-item">
+                <div class="project-header">
+                    <span class="tree-symbol">└──</span> 
+                    <span class="project-name">Gestão de Usuários</span> 
+                    <span class="project-tag">[Stable]</span>
+                </div>
+                <div class="project-content">
+                    <p class="description" data-pt="Sistema de Gestão de usuários usando Flask,PostgreSQL e Peewee desenvolvida para praticar minhas habilidades" data-en="User management system using Flask, PostgreSQL and Peewee developed to practice my skills.">Sistema de Gestão de usuários usando Flask,PostgreSQL e Peewee desenvolvida para praticar minhas habilidades.</p>
+                    <p class="tech-used" data-pt="Stack: Python, PostgreSQL, PeeweeORM" data-en="Stack: Python, PostgreSQL, PeeweeORM">Stack: Python, PostgreSQL, PeeweeORM</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Aquinozz/Gestao-de-Usuarios" target="_blank">> View_Code</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer style="margin-top: 50px;">
+            <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~/projects</span>$ <span class="command">cd ..</span></p>
+            <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~</span>$ <span class="cursor"></span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

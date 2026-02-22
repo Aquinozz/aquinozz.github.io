@@ -3,150 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aquinoz | Dev Craft</title>
+    <title>Aquinozz | Backend Terminal</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="custom-cursor"></div>
-    <div id="ambient-particles"></div>
-
-    <div class="mc-world-container">
-        <nav class="mc-nav">
-            <div class="logo">AQUINOZ<span>.py</span></div>
-            <div class="nav-links">
-                <a href="#sobre" class="mc-button">SOBRE</a>
-                <a href="#inventario" class="mc-button">INVENTÁRIO</a>
-                <a href="#projetos" class="mc-button">PROJETOS</a>
-                <a href="#contato" class="mc-button">CONTATO</a>
-            </div>
+    <div class="terminal-loader" id="loader"></div>
+    <div class="scanlines"></div>
+    
+    <div class="terminal-container">
+        <nav class="terminal-nav">
+            <a href="index.html" class="active">[ H O M E ]</a>
+            <a href="projects.html">[ P R O J E C T S ]</a>
+            <a href="contact.html">[ C O N T A C T ]</a>
         </nav>
 
-        <header class="mc-header">
-            <div class="header-overlay"></div>
-            <div class="avatar-column">
-                <img src="imagens/aquinoz-avatar.png" alt="Aquinoz Avatar" class="mc-avatar glowing-item">
-                <div class="shadow-effect"></div>
-            </div>
-            <div class="header-content">
-                <h1 class="enchanted-text">AQUINOZ</h1>
-                <p class="subtitle pixel-font">Back-End Developer</p>
-                
-                <div class="ui-stats">
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLanguage('pt')">PT_BR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">EN_US</button>
+        </div>
 
-                    <div class="ui-stats">
-    <div class="health-bar">
-        <img src="imagens/heart.png" class="heart-icon">
-       <img src="imagens/heart.png" class="heart-icon">
-       <img src="imagens/heart.png" class="heart-icon">
-       <img src="imagens/heart.png" class="heart-icon">
-       <img src="imagens/heart.png" class="heart-icon">
-       <img src="imagens/heart.png" class="heart-icon">
-       <img src="imagens/heart.png" class="heart-icon">
-        <img src="imagens/quebrado.png" class="heart-icon">
-        <img src="imagens/quebrado.png" class="heart-icon">
+       <header class="header-container">
+    <div class="ascii-art">
+<pre>
+  _                _                             
+ | |__   __ _  ___| | __ ___ _ __   __| |
+ | '_ \ / _` |/ __| |/ // _ \ '_ \ / _` |
+ | |_) | (_| | (__|   <|  __/ | | | (_| |
+ |_.__/ \__,_|\___|_|\_\\___|_| |_|\__,_|
+                                         
+ [ System: Linux v5.15.0-generic ]
+ [ User: aquinozz@backend ]
+ [ Status: Online & Scaling ]
+</pre>
     </div>
-    <div class="exp-bar-container">
-        <div class="exp-fill" style="width: 99%;"></div>
-        <span class="exp-level">99</span>
-    </div>
-
-    <a href="#sobre" class="mc-button explore-button">EXPLORAR MUNDO</a>
-</div>
-        </header>
-
-        <main class="mc-main-content">
-            <section id="sobre" class="mc-section dirt-block">
-                <div class="section-top-border"></div>
-                <h2 class="section-title">SOBRE O EXPLORADOR</h2>
-                <div class="intro-highlight">
-                    <p class="pixel-text">
-                        Olá! Eu sou <strong>Aquinoz</strong>, um <strong>Desenvolvedor Back-End</strong> Minha missão é gerar soluções eficientes com <strong>Python</strong> e <strong>SQL</strong> para construir aplicações digitais. Especialista em conectar sistemas e estruturar dados, sou o 'engenheiro de Redstone' responsável por garantir que toda a complexidade técnica resulte em uma experiência invisível e impecável para o usuário
-                </div>
-                <div class="section-bottom-border"></div>
-            </section>
-
-            <section id="inventario" class="mc-section crafting-table-block">
-                <div class="section-top-border"></div>
-                <h2 class="section-title">MEU INVENTÁRIO (SKILLS)</h2>
-                <div class="inventory-grid">
-                    <div class="slot clickable-slot" data-item="Python"><img src="imagens/icon-python.png" alt="Python"><span class="item-count glowing-text">64</span></div>
-                    <div class="slot clickable-slot" data-item="SQL"><img src="imagens/sql-icon.png" alt="SQL"><span class="item-count glowing-text">64</span></div>
-                    <div class="slot clickable-slot" data-item="JavaScript"><img src="imagens/icon-js.png" alt="JavaScript"><span class="item-count glowing-text">32</span></div>
-                    <div class="slot clickable-slot" data-item="HTML/CSS"><img src="imagens/html e css-icon.png" alt="HTML/CSS"><span class="item-count glowing-text">16</span></div>
-                    <div class="slot empty-slot"></div>
-                    <div class="slot empty-slot"></div>
-                    <div class="slot empty-slot"></div>
-                    <div class="slot empty-slot"></div>
-                </div>
-                <div class="section-bottom-border"></div>
-            </section>
-
-            <section id="projetos" class="mc-section stone-block">
-                <div class="section-top-border"></div>
-                <h2 class="section-title">MEUS MUNDOS (PROJETOS)</h2>
-                <div class="project-showcase">
-                    
-                    <a href="https://github.com/Aquinozz/Gerenciamento-de-estoque" target="_blank" class="project-card-link">
-                        <div class="project-card clickable-card">
-                            <h3 class="project-name">Gerenciamento de Estoque</h3>
-                            <p class="project-desc pixel-font">Sistemas de automação de dados com Python & SQL.</p>
-                            <span class="mc-button-sm mc-button">VER MAIS</span>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/Aquinozz/Gestao-de-Usuarios" target="_blank" class="project-card-link">
-                        <div class="project-card clickable-card">
-                            <h3 class="project-name">Gerenciamento de usuários</h3>
-                            <p class="project-desc pixel-font">Sistema de gerenciamento de usuários utilizando flask,PostgreSQL e Peewee.</p>
-                            <span class="mc-button-sm mc-button">VER MAIS</span>
-                        </div>
-                    </a>
-                    <a href="https://github.com/Aquinozz/Csgo-Matches-Tracker" target="_blank" class="project-card-link">
-                        <div class="project-card clickable-card">
-                            <h3 class="project-name">E-sports Hub (CS2)</h3>
-                            <p class="project-desc pixel-font">Aplicação para monitoramento de partidas competitivas em tempo real. Utilizando Python, Flask, REST API, CSS</p>
-                            <span class="mc-button-sm mc-button">VER MAIS</span>
-                        </div>
-                    </a>
-
-                </div>
-                <div class="section-bottom-border"></div>
-            </section>
-
-            <section id="contato" class="mc-section wooden-plank-block">
-                <div class="section-top-border"></div>
-                <h2 class="section-title">TELEPORTE PARA CONTATO</h2>
-                <div class="intro-highlight center-box">
-                   <p class="pixel-text">
-    Pronto para construir o próximo grande mundo? <br> Clique nos links abaixo para entrar em contato!<br><br>
     
-    <strong>E-mail:</strong> <a href="mailto:muriloaquinotrab@gmail.com" class="enchanted-link">muriloaquinotrab@gmail.com</a> <br>
-    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aquinoz/" target="_blank" class="enchanted-link">LinkedIn/aquinozz</a> <br>
-    <strong>Instagram:</strong> <a href="https://www.instagram.com/aquinoz.m/" target="_blank" class="enchanted-link">@aquinoz.m</a> <br>
-    <strong>GitHub:</strong> <a href="https://github.com/Aquinozz" target="_blank" class="enchanted-link">GitHub/Aquinozz</a>
-</p>
+    <div class="tux-art">
+<pre>
+     .--.
+    |o_o |
+    |:_/ |
+   //   \ \
+  (|     | )
+ /'\_   _/` \
+ \___)=(___/
+</pre>
+    </div>
+</header>
+
+        <main>
+            <section class="terminal-section">
+                <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~</span>$ <span class="command">cat about_me.txt</span></p>
+                <div class="output typing-text" 
+                     data-pt="Desenvolvedor focado em backend que gosta de projetar e construir sistemas escaláveis e confiáveis. Especializado em criar APIs robustas, escrever código limpo e otimizar performance em banco de dados."
+                     data-en="I'm a backend-focused developer who enjoys designing and building scalable, reliable systems. I specialize in creating robust APIs, writing clean code, and optimizing database performance.">
+                    Desenvolvedor focado em backend que gosta de projetar e construir sistemas escaláveis e confiáveis.
                 </div>
-                <div class="section-bottom-border"></div>
+            </section>
+
+            <section class="terminal-section">
+                <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~</span>$ <span class="command">ls /bin/techstack</span></p>
+                <div class="output">
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th data-pt="CATEGORIA" data-en="CATEGORY">CATEGORIA</th>
+                                <th data-pt="TECNOLOGIAS" data-en="TECHNOLOGIES">TECNOLOGIAS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Languages</td><td>Python (Expert), SQL, JavaScript</td></tr>
+                            <tr><td>Frameworks</td><td>FastAPI, Flask</td></tr>
+                            <tr><td>Databases</td><td>PostgreSQL, MySQL,Sqlite</td></tr>
+                            <tr><td>Infrastructure</td><td>Docker, Git, Linux CLI</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </main>
 
-        <footer class="mc-footer">
-            <p class="pixel-font">&copy; 2026 Aquinoz - Crafted in the Digital Realm</p>
-            <div class="torch-left"></div>
-            <div class="torch-right"></div>
-        </footer>
+        <p class="prompt-line"><span class="user">aquinozz@backend</span>:<span class="path">~</span>$ <span class="cursor"></span></p>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
