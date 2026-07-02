@@ -52,10 +52,10 @@ const data = {
 
   education: [
     {
-      title: 'Formação em Backend Development',
-      institution: 'Estudos Autodidatas & Cursos',
+      title: 'Técnico em Desenvolvimento de Sistemas',
+      institution: 'Senai Cimatec',
       period: 'Em andamento',
-      description: 'Foco em Java, Spring Boot, Python e arquitetura de APIs REST.',
+      description: 'Foco na Engenharia de Software e Hardware.',
       icon: 'cap',
     },
   ],
