@@ -62,17 +62,17 @@ const data = {
 
   experience: [
     {
+      title: 'Backend Developer e Frontend Developer',
+      company: 'RelvoJus',
+      period: 'Atual',
+      description: 'Responsável pela manutenção e criação de telas na camada Front-End, além de estruturar soluções de BaaS (Backend-as-a-Service) utilizando Supabase para otimizar o fluxo de dados da aplicação.',
+      icon: 'briefcase',
+    },
+    {
       title: 'Backend Developer',
       company: 'Projetos Independentes',
       period: 'Atual',
       description: 'Desenvolvimento de APIs REST, automação de processos e integração de IA em aplicações web.',
-      icon: 'briefcase',
-    },
-    {
-      title: 'Automation Developer',
-      company: 'Projetos Independentes',
-      period: 'Anterior',
-      description: 'Criação de ferramentas de monitoramento e tracking de dados em tempo real com Python e Flask.',
       icon: 'briefcase',
     },
   ],
