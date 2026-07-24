@@ -18,6 +18,13 @@ const data = {
     { name: 'Slf4j', icon: 'scroll' },
     { name: 'PyPDF', icon: 'file-text' },
     { name: 'AI', icon: 'brain' },
+    { name: 'Docker', icon: 'docker' },
+    { name: 'PostgreSQL', icon: 'database' },
+    { name: 'Kafka', icon: 'kafka' },
+    { name: 'Spring Cloud', icon: 'cloud' },
+    { name: 'Git', icon: 'git' },
+    { name: 'C++', icon: 'code' },
+    { name: 'SQL', icon: 'database' },
   ],
 
   projects: [
@@ -47,6 +54,15 @@ const data = {
       github: 'https://github.com/Aquinozz/pet-link',
       demo: null,
       image: 'https://wallpaperaccess.com/full/106042.jpg',
+    },
+    {
+      name: 'Biblioteca Manager Microservices',
+      tag: 'Stable',
+      description: 'Migração de API monolítica para arquitetura de microsserviços com API Gateway, Eureka e mensageria assíncrona com Kafka.',
+      tech: ['Java 21', 'Spring Boot', 'Spring Cloud', 'Spring Security', 'JWT', 'Kafka', 'Resilience4j', 'Docker'],
+      github: 'https://github.com/Aquinozz/biblioteca-manager-microservices',
+      demo: null,
+      image: 'https://wallpapercave.com/wp/wp5119602.jpg',
     },
   ],
 
@@ -109,6 +125,11 @@ const icons = {
   linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>',
   instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
   send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>',
+  download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+  docker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12.61c-1.63.32-3.22-.11-4.47-.76a8.44 8.44 0 0 1-1.13 2.95"/><path d="M2.5 12.5h9.5"/><path d="M7 8.5h.01"/><path d="M10.5 8.5h.01"/><path d="M14 8.5h.01"/><path d="M17.5 9.5h.01"/><path d="M7 12.5h.01"/><path d="M10.5 12.5h.01"/><path d="M14 12.5h.01"/><path d="M21 15a5 5 0 0 1-5 5c-3.3 0-6-2.5-6-6v-1"/><path d="M16 9c0-3 2-5 5-5-1 2.5-1 5 0 8"/></svg>',
+  cloud: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>',
+  kafka: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 9V3"/><path d="M12 21v-6"/><path d="M5 12H3"/><path d="M21 12h-2"/><path d="M7.5 7.5 4 4"/><path d="M20 20l-3.5-3.5"/><path d="M16.5 7.5 20 4"/><path d="M4 20l3.5-3.5"/></svg>',
+  git: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 8V2"/><path d="M12 22v-6"/><path d="M8 12H2"/><path d="M22 12h-6"/></svg>',
 };
 
 function getIcon(name) {
