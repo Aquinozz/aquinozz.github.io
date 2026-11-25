@@ -257,7 +257,7 @@ const data = {
       },
       icon: 'briefcase',
     },
-    { title: { pt: 'Desenvolvedor', en: 'Developer' }, company: 'ZooPet', period: { pt: 'Startup', en: 'Startup' }, description: { pt: 'Desenvolvimento de software em startup.', en: 'Software development at a startup.' }, icon: 'briefcase' },
+    { title: { pt: 'Diretor de Desenvolvimento Back-end', en: 'Director of Backend Development' }, company: 'ZooPet', period: { pt: 'Desde fev. 2026', en: 'Since Feb 2026' }, description: { pt: 'Direção do desenvolvimento back-end da startup.', en: 'Leading backend development at the startup.' }, icon: 'briefcase' },
     {
       title: { pt: 'Backend Developer', en: 'Backend Developer' },
       company: { pt: 'Projetos Independentes', en: 'Independent Projects' },
