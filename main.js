@@ -257,6 +257,7 @@ const data = {
       },
       icon: 'briefcase',
     },
+    { title: { pt: 'Desenvolvedor', en: 'Developer' }, company: 'ZooPet', period: { pt: 'Startup', en: 'Startup' }, description: { pt: 'Desenvolvimento de software em startup.', en: 'Software development at a startup.' }, icon: 'briefcase' },
     {
       title: { pt: 'Backend Developer', en: 'Backend Developer' },
       company: { pt: 'Projetos Independentes', en: 'Independent Projects' },
