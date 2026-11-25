@@ -222,16 +222,17 @@ const data = {
       demo: null,
     },
     {
-      repo: 'event-management',
-      name: 'Event Management API',
+      repo: 'event-management-ms',
+      name: 'Event Management Microservices',
       tag: { pt: 'Stable', en: 'Stable' },
       description: {
-        pt: 'API REST para gerenciamento de eventos com autenticação JWT, categorias e inscrições públicas.',
-        en: 'REST API for event management with JWT authentication, categories and public registrations.',
+        pt: 'Gerenciamento de eventos em microsserviços: eventos, categorias e inscrições públicas, com autenticação JWT e notificações assíncronas via Kafka.',
+        en: 'Event management in microservices: events, categories and public registrations, with JWT authentication and asynchronous notifications over Kafka.',
       },
-      tech: ['Java', 'Spring Boot', 'Spring Security', 'JWT', 'Spring Data JPA', 'H2', 'Swagger'],
-      flow: 'events',
-      github: 'https://github.com/Aquinozz/event-management',
+      tech: ['Java', 'Spring Boot', 'Spring Cloud Gateway', 'Spring Security', 'JWT', 'Kafka', 'H2', 'Docker', 'Swagger'],
+      highlights: [{ pt: 'auth-service emite o JWT e mantém a blacklist de logout; os outros serviços validam a assinatura e consultam se o token foi revogado.', en: 'auth-service issues the JWT and keeps the logout blacklist; the other services validate the signature and check whether the token was revoked.' }, { pt: 'event-service publica no Kafka em inscrições e cancelamentos; notification-service consome e registra as notificações.', en: 'event-service publishes to Kafka on registrations and cancellations; notification-service consumes and records the notifications.' }],
+      flow: 'eventsms',
+      github: 'https://github.com/Aquinozz/event-management-ms',
       demo: null,
     },
   ],
@@ -456,6 +457,7 @@ const flows = {
       ${flowLine('M160 112v20', true, false)}
       ${flowNode(108, 132, 104, 40, 'Eureka', 'discovery')}`,
   },
+  eventsms: { viewBox: '0 0 508 180', label: 'Client → Spring Cloud Gateway → auth-service, event-service and notification-service; event-service publishes to Kafka and notification-service consumes from it', body: () => [flowNode(4, 68, 80, 44, 'client', 'HTTP + JWT'), flowLine('M86 90h18'), flowNode(108, 68, 104, 44, 'gateway', 'Spring Cloud', 'flow-node-accent'), flowLine('M212 90h32'), flowLine('M228 90V30h16'), flowLine('M228 90v60h16'), flowNode(248, 8, 116, 44, 'auth-service', 'JWT · logout'), flowNode(248, 68, 116, 44, 'event-service', 'events · signups'), flowNode(248, 128, 116, 44, 'notification', 'Kafka consumer'), flowLine('M366 90h20'), flowNode(390, 68, 112, 44, 'Kafka', '2 topics', 'flow-node-accent'), flowLine('M446 112v38h-78', true)].join('') },
   events: {
     viewBox: '0 0 424 180',
     label: 'Client → Spring Security JWT filter → controllers → services → repositories → H2 database',
